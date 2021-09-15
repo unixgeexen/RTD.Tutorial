@@ -12,7 +12,23 @@ how to :ref:`installation` the project.
 .. note::
 
    This project is under active development.
+   
    Lumache has its documentation hosted on Read the Docs.
+   
+Kroki
+==================
+.. kroki::
+   :caption: Diagram
+   :type: plantuml
+
+    @startuml
+    Alice -> Bob: Authentication Request
+    Bob --> Alice: Authentication Response
+
+    Alice -> Bob: Another authentication Request
+    Alice <-- Bob: Another authentication Response
+    @enduml
+
 
 Contents
 --------
