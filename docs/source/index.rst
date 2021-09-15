@@ -15,19 +15,44 @@ how to :ref:`installation` the project.
    
    Lumache has its documentation hosted on Read the Docs.
    
-Kroki
+uml
 ==================
-.. kroki::
-   :caption: Diagram
-   :type: plantuml
+@startuml
+title Activity diagram\n
 
-    @startuml
-    Alice -> Bob: Authentication Request
-    Bob --> Alice: Authentication Response
 
-    Alice -> Bob: Another authentication Request
-    Alice <-- Bob: Another authentication Response
-    @enduml
+
+start
+
+
+
+if (Receive Order) then (accepted)
+:Fill Order;
+:Order Accepted;
+
+
+fork
+:Ship Order;
+
+fork again
+:Send Invoice;
+
+:Receive Payment;
+
+end fork
+
+else (Order Rejected)
+:Send Order Declined Notice;
+
+endif
+
+
+:Close Order;
+
+end
+
+!include ../../plantuml-styles/ae-copyright-footer.txt
+@enduml
 
 
 Contents
